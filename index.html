@@ -6,15 +6,107 @@
     <title>Hello world</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!--    <style>-->
+    <!--        .nav-button, .mobile-nav {-->
+    <!--            display: none;-->
+    <!--        }-->
+
+    <!--        .cross-icon, .bar-icon {-->
+    <!--            display: none;-->
+    <!--        }-->
+
+    <!--        .active {-->
+    <!--            display: block;-->
+    <!--        }-->
+
+
+    <!--        @media (max-width: 640px) {-->
+    <!--            .nav-links {-->
+    <!--                display: none !important;-->
+    <!--            }-->
+
+    <!--            .nav-button {-->
+    <!--                display: block;-->
+    <!--            }-->
+    <!--        }-->
+    <!--    </style>-->
+
 </head>
 <body class="bg-zinc-100">
 
-  <div id="root" class='flex flex-col space-y-5 max-w-sm mx-auto mt-12'>
+<header class="fixed top-0 left-0 right-0 w-full">
+    <nav class="flex justify-between bg-white py-4 px-4">
+        <h3>Logo</h3>
 
-  </div>
+        <ul class="hidden sm:flex nav-links">
+            <li class="ml-4"><a href="#">Home</a></li>
+            <li class="ml-4"><a href="#">about</a></li>
+            <li class="ml-4"><a href="#">contact</a></li>
+            <li class="ml-4"><a href="#">services</a></li>
+        </ul>
+
+        <button class="nav-button sm:hidden">
+            <!--  bar icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor" class="size-6 bar-icon block">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+            </svg>
+
+            <!--   X icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor" class="size-6 cross-icon hidden">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
+            </svg>
+
+        </button>
+    </nav>
+
+    <ul class="bg-white px-4 pb-4 mobile-nav sm:hidden hidden">
+        <li><a href="#" class="text-gray-500">Home</a></li>
+        <li class="mt-3"><a href="#" class="text-gray-500">about</a></li>
+        <li class="mt-3"><a href="#" class="text-gray-500">contact</a></li>
+        <li class="mt-3"><a href="#" class="text-gray-500">services</a></li>
+    </ul>
+
+</header>
+
+<div class=" max-w-sm mx-auto mt-20">
+    <h2 class="mb-4">All Posts</h2>
+    <div id="allPost" class='flex flex-col space-y-5'>
+
+    </div>
+</div>
 
 
-   <script src="./main.js"></script>
+<div class=" max-w-sm mx-auto mt-12">
+    <h2 class="mb-4">Draft Posts</h2>
+    <div id="draftPost" class='flex flex-col space-y-5'>
+
+    </div>
+</div>
+
+<script src="./main.js"></script>
+
+<script>
+    const navButton = document.querySelector('.nav-button');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    const barIcon = document.querySelector('.bar-icon');
+    const crossIcon = document.querySelector('.cross-icon');
+
+    navButton.addEventListener('click', () => {
+        // mobileNav.classList.toggle('active');
+        mobileNav.classList.toggle('block');
+        mobileNav.classList.toggle('hidden');
+
+        // crossIcon.classList.toggle('active');
+        // barIcon.classList.toggle('active');
+        crossIcon.classList.toggle('block');
+        crossIcon.classList.toggle('hidden');
+        barIcon.classList.toggle('hidden');
+        barIcon.classList.toggle('block');
+    });
+</script>
 
 </body>
 </html>
